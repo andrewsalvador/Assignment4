@@ -27,11 +27,6 @@ lobster_bysite <- lobster_data_clean %>%
   count(year, site)
 
 
-
-ggplot(lobster_data_clean, aes(x = ))
-
-
-
 #IVEE
 
 
@@ -39,5 +34,21 @@ ggplot(lobster_data_clean, aes(x = ))
 
 
 
+
+
+
+
+
+
+
+
+```{r}
+lobster_aque <- lobster_bysite %>% 
+  filter(site == "AQUE")
+
+ggplot(data = lobster_aque, aes(x = year, y = n))+
+  geom_col()
+
+```
 
 
