@@ -1,15 +1,23 @@
 ---
 title: "Assignment 4 Lobsters"
-author: "Andrew Salvador"
+author: "Andrew Salvador & Benson Truong"
 date: "11/12/2019"
 output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE)
 ```
+
 
 ```{r}
 library(tidyverse)
+library(janitor)
+```
+
+```{r}
+;akldsjfakdjfa;lkdfj
+dfakdjf;akldfj
+
 ```
 
