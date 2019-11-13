@@ -15,22 +15,6 @@ library(tidyverse)
 library(janitor)
 ```
 
-```{r}
-;akldsjfakdjfa
-dfakdjf;akldfj
-
-```
-
-
-
-
-```{r}
-<<<<<<< HEAD
-wefawef
-=======
-bla
->>>>>>> 87a4f10f6fe718c6e727ea74d3974870f7302297
-```
 
 
 
@@ -38,10 +22,4 @@ bla
 
 
 
-
-
-
-```{r}
-awefawef
-```
 
