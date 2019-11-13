@@ -28,6 +28,8 @@ lobster_bysite <- lobster_data_clean %>%
 
 ```
 
+
+
 ```{r}
 lobster_ivee <- lobster_bysite %>% 
   filter(site %in% c("IVEE"))
@@ -36,15 +38,156 @@ lobster_ivee <- lobster_bysite %>%
 ggplot(ivee, aes(x = year, 
                  y = n)) +
   geom_col() 
+
 ```
 
   
 
 
-#IVEE
 
 
-```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
