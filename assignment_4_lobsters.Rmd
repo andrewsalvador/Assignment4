@@ -16,6 +16,26 @@ library(janitor)
 ```
 
 
+```{r}
+lobster_data <- read_csv("lobster_abundance_sbc_lter.csv") %>% 
+  clean_names() 
+
+lobster_data_clean <- lobster_data %>% 
+  tidyr::uncount(count)
+
+lobster_bysite <- lobster_data_clean %>% 
+  count(year, site)
+
+
+
+ggplot(lobster_data_clean, aes(x = ))
+
+
+
+#IVEE
+
+
+```
 
 
 
