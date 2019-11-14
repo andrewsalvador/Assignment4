@@ -298,7 +298,8 @@ lobster_data_2012 <- lobster_data_clean %>%
 
 ggplot(data = lobster_data_2012, aes(x = size_mm))+
   geom_histogram(aes(fill = site))+
-  facet_wrap(~site, scales ="free")
+  facet_wrap(~site, scales ="free")+
+  labs(x = "Size (mm)", y = "Counts", title = "2012 Lobster Size Distribution")
 
 # For 2018
 lobster_data_2018 <- lobster_data_clean %>% 
@@ -306,7 +307,9 @@ lobster_data_2018 <- lobster_data_clean %>%
 
 ggplot(data = lobster_data_2018, aes(x = size_mm))+
   geom_histogram(aes(fill = site))+
-  facet_wrap(~site, scales = "free")
+  facet_wrap(~site, scales = "free")+
+  labs(x = "Size (mm)", y = "Counts", title = "2018 Lobster Size Distribution")
+
                 
 ```
 
