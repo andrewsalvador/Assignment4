@@ -291,12 +291,23 @@ ggplot(lobster_factoraque, aes(x = year,
 
 
 ```{r}
-lobster_aque <- lobster_bysite %>% 
-  filter(site == "AQUE")
+# RESULTS B
+# For 2012
+lobster_data_2012 <- lobster_data_clean %>% 
+  filter(year == "2012")
 
-ggplot(data = lobster_aque, aes(x = year, y = n))+
-  geom_col()
+ggplot(data = lobster_data_2012, aes(x = size_mm))+
+  geom_histogram(aes(fill = site))+
+  facet_wrap(~site, scales ="free")
 
+# For 2018
+lobster_data_2018 <- lobster_data_clean %>% 
+  filter(year == "2018")
+
+ggplot(data = lobster_data_2018, aes(x = size_mm))+
+  geom_histogram(aes(fill = site))+
+  facet_wrap(~site, scales = "free")
+                
 ```
 
 
