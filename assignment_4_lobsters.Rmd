@@ -34,10 +34,20 @@ lobster_bysite <- lobster_data_clean %>%
 lobster_ivee <- lobster_bysite %>% 
   filter(site %in% c("IVEE"))
   
+lobster_factor <- lobster_ivee %>% 
+  mutate(year = as.character(year)) 
 
-ggplot(ivee, aes(x = year, 
-                 y = n)) +
-  geom_col() 
+
+ggplot(lobster_factor, aes(x = year,
+                           y = n)) +
+  geom_col(width = .8) +
+  labs(x = "Year",
+       y = "Count",
+       title = "Lobster count in Isla Vista (MPA) 2012-2018") +
+  scale_y_continuous(limits = c(0, 1000), expand = c(0,0)) 
+  
+
+
 
 ```
 
