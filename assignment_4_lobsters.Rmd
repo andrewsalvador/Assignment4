@@ -31,6 +31,9 @@ lobster_bysite <- lobster_data_clean %>%
 
 
 ```{r}
+# RESULTS A
+# IVEE LOBSTER COUNT
+
 lobster_ivee <- lobster_bysite %>% 
   filter(site %in% c("IVEE"))
   
@@ -52,6 +55,25 @@ ggplot(lobster_factor, aes(x = year,
 ```
 
   
+```{r}
+#RESULTS A:
+#CARP LOBSTER COUNT
+lobster_carp <- lobster_bysite %>% 
+  filter(site %in% c("CARP"))
+  
+lobster_factor <- lobster_carp %>% 
+  mutate(year = as.character(year)) 
+
+
+ggplot(lobster_factor, aes(x = year,
+                           y = n)) +
+  geom_col(width = .8) +
+  labs(x = "Year",
+       y = "Count",
+       title = "Lobster count in Carpinteria (Non-MPA) 2012-2018") +
+  scale_y_continuous(limits = c(0, 750), expand = c(0,0)) 
+
+```
 
 
 
