@@ -309,8 +309,23 @@ ggplot(data = lobster_data_2018, aes(x = size_mm))+
   geom_histogram(aes(fill = site))+
   facet_wrap(~site, scales = "free")+
   labs(x = "Size (mm)", y = "Counts", title = "2018 Lobster Size Distribution")
-
                 
 ```
 
+```{r}
+# RESULTS C
+# For 2012
+lobster_summary_2012 <- lobster_data_2012 %>% 
+  group_by(site) %>% 
+  summarise(mean_size = mean(size_mm, na.rm = TRUE),
+            sd_size= sd(size_mm, na.rm = TRUE),
+            sample_n = n())
+
+# For 2018
+lobster_summary_2018 <- lobster_data_2018 %>% 
+  group_by(site) %>% 
+  summarise(mean_size = mean(size_mm, na.rm = TRUE),
+            sd_size= sd(size_mm, na.rm = TRUE),
+            sample_n = n())
+```
 
