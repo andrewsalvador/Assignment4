@@ -315,17 +315,43 @@ ggplot(data = lobster_data_2018, aes(x = size_mm))+
 ```{r}
 # RESULTS C
 # For 2012
-lobster_summary_2012 <- lobster_data_2012 %>% 
+lobster_smry_2012 <- lobster_data_2012 %>% 
   group_by(site) %>% 
   summarise(mean_size = mean(size_mm, na.rm = TRUE),
             sd_size= sd(size_mm, na.rm = TRUE),
             sample_n = n())
 
+# Mean size(mm) for Marine Protected Areas (MPA)
+lobster_smry_mpa_2012 <- lobster_data_2012 %>% 
+  filter(site %in% c("IVEE", "NAPL")) 
+mean_mpa_2012 <- mean(lobster_smry_mpa_2012$size_mm, na.rm = TRUE)
+
+
+# Mean size(mm) for Non-Marine Protected Areas (Non-MPA)
+lobster_smry_non_mpa_2012 <- lobster_data_2018 %>% 
+  filter(site %in% c("AQUE", "MOHK", "CARP"))
+mean_non_mpa_2012 <- mean(lobster_smry_non_mpa_2012$size_mm, na.rm = TRUE)
+            
+  
+
 # For 2018
-lobster_summary_2018 <- lobster_data_2018 %>% 
+lobster_smry_2018 <- lobster_data_2018 %>% 
   group_by(site) %>% 
   summarise(mean_size = mean(size_mm, na.rm = TRUE),
             sd_size= sd(size_mm, na.rm = TRUE),
             sample_n = n())
+
+# Mean size(mm) for Marine Protected Areas (MPA)
+lobster_smry_mpa_2018 <- lobster_data_2018 %>% 
+  filter(site %in% c("IVEE", "NAPL"))
+mean_mpa_2018 <- mean(lobster_smry_mpa_2018$size_mm, na.rm = TRUE)
+
+# Mean size(mm) for Non-Marine Protected Areas (Non-MPA)
+lobster_smry_non_mpa_2018 <- lobster_data_2018 %>% 
+  filter(site %in% c("AQUE", "MOHK", "CARP"))
+mean_non_mpa_2018 <- mean(lobster_smry_mpa_2018$size_mm, na.rm = TRUE)
+  
+
+  
 ```
 
