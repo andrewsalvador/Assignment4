@@ -370,6 +370,12 @@ summary {
 </div>
 
 
+<div id="introduction" class="section level3">
+<h3>Introduction:</h3>
+</div>
+<div id="data-and-methods" class="section level3">
+<h3>Data and Methods:</h3>
+</div>
 <div id="results" class="section level3 tabset tabset-fade">
 <h3>Results</h3>
 <div id="results-a" class="section level4">
@@ -410,6 +416,60 @@ summary {
 ## mean of x 
 ##  77.56672</code></pre>
 <pre><code>## 
+##  One Sample t-test
+## 
+## data:  non_mpa_lobsters_2012
+## t = 85.14, df = 198, p-value &lt; 2.2e-16
+## alternative hypothesis: true mean is not equal to 0
+## 95 percent confidence interval:
+##  73.18922 76.66003
+## sample estimates:
+## mean of x 
+##  74.92462</code></pre>
+<pre><code>## 
+##  One Sample t-test
+## 
+## data:  non_mpa_lobsters_2018
+## t = 172.74, df = 560, p-value &lt; 2.2e-16
+## alternative hypothesis: true mean is not equal to 0
+## 95 percent confidence interval:
+##  72.78285 74.45708
+## sample estimates:
+## mean of x 
+##  73.61996</code></pre>
+</div>
+</div>
+<div id="for-2012-observations-is-there-a-significant-difference-in-lobster-size-between-mpa-and-non-mpa-sites" class="section level3">
+<h3>1. For 2012 observations, is there a significant difference in lobster size between MPA and non-MPA sites?</h3>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  mpa_lobsters_2012 and non_mpa_lobsters_2012
+## t = -3.2516, df = 42.088, p-value = 0.002263
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -12.234960  -2.864287
+## sample estimates:
+## mean of x mean of y 
+##  67.37500  74.92462</code></pre>
+</div>
+<div id="for-2018-observations-is-there-a-significant-difference-in-lobster-size-between-mpa-and-non-mpa-sites" class="section level3">
+<h3>2. For 2018 observations, is there a significant difference in lobster size between MPA and non-MPA sites?</h3>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  mpa_lobsters_2018 and non_mpa_lobsters_2018
+## t = 7.3071, df = 1239.5, p-value = 4.876e-13
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  2.887090 5.006422
+## sample estimates:
+## mean of x mean of y 
+##  77.56672  73.61996</code></pre>
+</div>
+<div id="for-mpa-sites-only-is-there-a-significant-mean-size-difference-in-lobsters-observed-in-2012-vs.2018" class="section level3">
+<h3>3. For MPA sites only, is there a significant mean size difference in lobsters observed in 2012 vs. 2018?</h3>
+<pre><code>## 
 ##  Welch Two Sample t-test
 ## 
 ## data:  mpa_lobsters_2012 and mpa_lobsters_2018
@@ -421,7 +481,6 @@ summary {
 ## mean of x mean of y 
 ##  67.37500  77.56672</code></pre>
 <p>Mean lobster size in MPA sites differed significantly from 2012 to 2018 (t(32.5) = -4.69, <em>p</em> &lt; .001).</p>
-</div>
 </div>
 
 

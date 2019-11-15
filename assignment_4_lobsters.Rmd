@@ -28,13 +28,16 @@ lobster_bysite <- lobster_data_clean %>%
   count(year, site)
 
 ```
+### Introduction:
+
+### Data and Methods:
 
 ### Results {.tabset .tabset-fade}
 
 #### Results A
 
 ```{r}
-# Results A messing around (probably better)
+# Results A messing around (probably better) (nEEED TO MAKE A NEW MPA COLUMNN)
 lobster_count_graph <- lobster_bysite %>% 
   mutate(year = as.character(year)) 
 
@@ -362,7 +365,7 @@ mean_mpa_2012 <- mean(lobster_smry_mpa_2012$size_mm, na.rm = TRUE)
 
 
 # Mean size(mm) for Non-Marine Protected Areas (Non-MPA)
-lobster_smry_non_mpa_2012 <- lobster_data_2018 %>% 
+lobster_smry_non_mpa_2012 <- lobster_data_2012 %>% 
   filter(site %in% c("AQUE", "MOHK", "CARP"))
 mean_non_mpa_2012 <- mean(lobster_smry_non_mpa_2012$size_mm, na.rm = TRUE)
             
@@ -383,7 +386,7 @@ mean_mpa_2018 <- mean(lobster_smry_mpa_2018$size_mm, na.rm = TRUE)
 # Mean size(mm) for Non-Marine Protected Areas (Non-MPA)
 lobster_smry_non_mpa_2018 <- lobster_data_2018 %>% 
   filter(site %in% c("AQUE", "MOHK", "CARP"))
-mean_non_mpa_2018 <- mean(lobster_smry_mpa_2018$size_mm, na.rm = TRUE)
+mean_non_mpa_2018 <- mean(lobster_smry_non_mpa_2018$size_mm, na.rm = TRUE)
 
 
   
@@ -411,10 +414,51 @@ t.test(mpa_lobsters_2018)
 ```
 
 ```{r}
+# Non-MPA lobsters 2012
+
+non_mpa_lobsters_2012 <- lobster_smry_non_mpa_2012 %>% 
+  pull(size_mm)
+
+t.test(non_mpa_lobsters_2012)
+
+```
+```{r}
+# Non-MPA lobsters 2018
+non_mpa_lobsters_2018 <- lobster_smry_non_mpa_2018 %>% 
+  pull(size_mm)
+
+t.test(non_mpa_lobsters_2018)
+
+```
+
+### 1. For 2012 observations, is there a significant difference in lobster size between MPA and non-MPA sites?
+
+```{r}
+#Results C, Question 1.
+# 2 sample t-test 2012 MPA vs Non-MPA lobsters
+mpa_v_non_mpa_2012_ttest <- t.test(mpa_lobsters_2012, non_mpa_lobsters_2012)
+mpa_v_non_mpa_2012_ttest
+
+
+```
+### 2. For 2018 observations, is there a significant difference in lobster size between MPA and non-MPA sites?
+
+```{r}
+#Results C, Question 2. 
+mpa_v_non_mpa_2018_ttest <- t.test(mpa_lobsters_2018, non_mpa_lobsters_2018)
+mpa_v_non_mpa_2018_ttest
+```
+
+### 3. For MPA sites only, is there a significant mean size difference in lobsters observed in 2012 vs. 2018?
+```{r}
 # Results C, Question 3. 
-#2 Sample t-test MPA lobsters 2012 and 2018
+# 2 Sample t-test MPA lobsters 2012 and 2018
 mpa_2012_2018_ttest <- t.test(mpa_lobsters_2012, mpa_lobsters_2018)
 mpa_2012_2018_ttest
 ```
 
 Mean lobster size in MPA sites differed significantly from 2012 to 2018 (t(`r round(mpa_2012_2018_ttest$parameter, 2)`) = `r round(mpa_2012_2018_ttest$statistic, 2)`, *p* < .001).
+
+
+
+
