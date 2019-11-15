@@ -29,7 +29,14 @@ lobster_bysite <- lobster_data_clean %>%
 
 ```
 
+### Results {.tabset .tabset-fade}
 
+#### Results A
+
+```{r}
+#REULTS A messing around
+
+```
 
 ```{r}
 # RESULTS A
@@ -288,7 +295,7 @@ ggplot(lobster_factoraque, aes(x = year,
 
 
 
-
+#### Results B
 
 ```{r}
 # RESULTS B
@@ -311,6 +318,9 @@ ggplot(data = lobster_data_2018, aes(x = size_mm))+
   labs(x = "Size (mm)", y = "Counts", title = "2018 Lobster Size Distribution")
                 
 ```
+
+
+#### Results C
 
 ```{r}
 # RESULTS C
