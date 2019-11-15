@@ -314,7 +314,8 @@ ggplot(data = lobster_data_2018, aes(x = size_mm))+
 
 ```{r}
 # RESULTS C
-# For 2012
+
+# For 2012--------------------------------
 lobster_smry_2012 <- lobster_data_2012 %>% 
   group_by(site) %>% 
   summarise(mean_size = mean(size_mm, na.rm = TRUE),
@@ -334,7 +335,7 @@ mean_non_mpa_2012 <- mean(lobster_smry_non_mpa_2012$size_mm, na.rm = TRUE)
             
   
 
-# For 2018
+##For 2018---------------------------------
 lobster_smry_2018 <- lobster_data_2018 %>% 
   group_by(site) %>% 
   summarise(mean_size = mean(size_mm, na.rm = TRUE),
@@ -350,8 +351,37 @@ mean_mpa_2018 <- mean(lobster_smry_mpa_2018$size_mm, na.rm = TRUE)
 lobster_smry_non_mpa_2018 <- lobster_data_2018 %>% 
   filter(site %in% c("AQUE", "MOHK", "CARP"))
 mean_non_mpa_2018 <- mean(lobster_smry_mpa_2018$size_mm, na.rm = TRUE)
+
+
   
 
   
 ```
 
+```{r}
+# MPA Lobsters 2012
+#One sample t-test..
+mpa_lobsters_2012 <- lobster_smry_mpa_2012 %>% 
+  filter(site %in% c("IVEE", "NAPL")) %>% 
+  pull(size_mm)
+
+t.test(mpa_lobsters_2012)
+```
+
+```{r}
+#MPA Lobsters 2018
+mpa_lobsters_2018 <- lobster_smry_mpa_2018 %>% 
+  filter(site %in% c("IVEE", "NAPL")) %>% 
+  pull(size_mm)
+
+t.test(mpa_lobsters_2018)
+```
+
+```{r}
+# Results C, Question 3. 
+#2 Sample t-test MPA lobsters 2012 and 2018
+mpa_2012_2018_ttest <- t.test(mpa_lobsters_2012, mpa_lobsters_2018)
+mpa_2012_2018_ttest
+```
+
+Mean lobster size in MPA sites differed significantly from 2012 to 2018 (t(`r round(mpa_2012_2018_ttest$parameter, 2)`) = `r round(mpa_2012_2018_ttest$statistic, 2)`, *p* < .001).
