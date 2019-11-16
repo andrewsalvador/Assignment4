@@ -40,6 +40,7 @@ lobster_bysite <- lobster_data_clean %>%
 # Results A messing around (probably better) (nEEED TO MAKE A NEW MPA COLUMNN)
 lobster_count_graph <- lobster_bysite %>% 
   mutate(year = as.character(year)) 
+  
 
 lobster_count_graph$year <- gsub("2012", "'12", lobster_count_graph$year)
 lobster_count_graph$year <- gsub("2013", "'13", lobster_count_graph$year)
@@ -58,255 +59,13 @@ ggplot(lobster_count_graph, aes(x = year,
                fill = site)) +
   labs(x = "Year",
        y = "Count") +
+  scale_y_continuous(limits = c(0,1000), expand = c(0,0)) +
    facet_wrap(~site) 
+  
  
 
 
 ```
-
-```{r}
-# RESULTS A
-# IVEE LOBSTER COUNT
-
-lobster_ivee <- lobster_bysite %>% 
-  filter(site %in% c("IVEE"))
-  
-lobster_factorivee <- lobster_ivee %>% 
-  mutate(year = as.character(year)) 
-
-
-ggplot(lobster_factorivee, aes(x = year,
-                           y = n)) +
-  geom_col(width = .8) +
-  labs(x = "Year",
-       y = "Count",
-       title = "Lobster count in Isla Vista (MPA) 2012-2018") +
-  scale_y_continuous(limits = c(0, 1000), expand = c(0,0)) 
-  
-
-
-
-```
-
-  
-```{r}
-#RESULTS A:
-#CARP LOBSTER COUNT
-lobster_carp <- lobster_bysite %>% 
-  filter(site %in% c("CARP"))
-  
-lobster_factorcarp <- lobster_carp %>% 
-  mutate(year = as.character(year)) 
-
-
-ggplot(lobster_factorcarp, aes(x = year,
-                           y = n)) +
-  geom_col(width = .8) +
-  labs(x = "Year",
-       y = "Count",
-       title = "Lobster count in Carpinteria (Non-MPA) 2012-2018") +
-  scale_y_continuous(limits = c(0, 750), expand = c(0,0)) 
-
-```
-
-
-```{r}
-
-#RESULTS A
-#MOHAWK Lobster count 2012-2018
-
-lobster_mohk <- lobster_bysite %>% 
-  filter(site %in% c("MOHK"))
-  
-lobster_factormohk <- lobster_mohk %>% 
-  mutate(year = as.character(year)) 
-
-
-ggplot(lobster_factormohk, aes(x = year,
-                           y = n)) +
-  geom_col(width = .8) +
-  labs(x = "Year",
-       y = "Count",
-       title = "Lobster count in Mohawk (Non-MPA) 2012-2018") +
-  scale_y_continuous(limits = c(0, 350), expand = c(0,0)) 
-```
-
-```{r}
-# RESULTS A
-#NAPLES (NAPL) Lobster count
-
-lobster_napl <- lobster_bysite %>% 
-  filter(site %in% c("MOHK"))
-  
-lobster_factornapl <- lobster_napl %>% 
-  mutate(year = as.character(year)) 
-
-
-ggplot(lobster_factornapl, aes(x = year,
-                           y = n)) +
-  geom_col(width = .8) +
-  labs(x = "Year",
-       y = "Count",
-       title = "Lobster count in Naples (MPA) 2012-2018") +
-  scale_y_continuous(limits = c(0, 350), expand = c(0,0)) 
-```
-
-
-```{r}
-# RESULTS A
-# ARROYO QUEMADO (AQUE) Lobster count
-
-lobster_aque <- lobster_bysite %>% 
-  filter(site %in% c("AQUE"))
-  
-lobster_factoraque <- lobster_aque %>% 
-  mutate(year = as.character(year)) 
-
-
-ggplot(lobster_factoraque, aes(x = year,
-                           y = n)) +
-  geom_col(width = .8) +
-  labs(x = "Year",
-       y = "Count",
-       title = "Lobster count in Arroyo Quemado (Non-MPA) 2012-2018") +
-  scale_y_continuous(limits = c(0, 125), expand = c(0,0)) 
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -431,7 +190,7 @@ t.test(non_mpa_lobsters_2018)
 
 ```
 
-### 1. For 2012 observations, is there a significant difference in lobster size between MPA and non-MPA sites?
+##### 1. For 2012 observations, is there a significant difference in lobster size between MPA and non-MPA sites?
 
 ```{r}
 #Results C, Question 1.
@@ -441,7 +200,10 @@ mpa_v_non_mpa_2012_ttest
 
 
 ```
-### 2. For 2018 observations, is there a significant difference in lobster size between MPA and non-MPA sites?
+
+Mean lobster size in MPA vs Non-MPA sites differed significantly in 2012 (t(`r round(mpa_v_non_mpa_2012_ttest$parameter, 2)`) = `r round(mpa_v_non_mpa_2012_ttest$statistic, 2)`, *p* < 0.05).
+
+##### 2. For 2018 observations, is there a significant difference in lobster size between MPA and non-MPA sites?
 
 ```{r}
 #Results C, Question 2. 
@@ -449,7 +211,10 @@ mpa_v_non_mpa_2018_ttest <- t.test(mpa_lobsters_2018, non_mpa_lobsters_2018)
 mpa_v_non_mpa_2018_ttest
 ```
 
-### 3. For MPA sites only, is there a significant mean size difference in lobsters observed in 2012 vs. 2018?
+Mean lobster size in MPA vs Non-MPA sites differed significantly in 2018 (t(`r round(mpa_v_non_mpa_2018_ttest$parameter, 2)`) = `r round(mpa_v_non_mpa_2018_ttest$statistic, 2)`, *p* < 0.05).
+
+
+##### 3. For MPA sites only, is there a significant mean size difference in lobsters observed in 2012 vs. 2018?
 ```{r}
 # Results C, Question 3. 
 # 2 Sample t-test MPA lobsters 2012 and 2018
@@ -457,8 +222,20 @@ mpa_2012_2018_ttest <- t.test(mpa_lobsters_2012, mpa_lobsters_2018)
 mpa_2012_2018_ttest
 ```
 
-Mean lobster size in MPA sites differed significantly from 2012 to 2018 (t(`r round(mpa_2012_2018_ttest$parameter, 2)`) = `r round(mpa_2012_2018_ttest$statistic, 2)`, *p* < .001).
+Mean lobster size in MPA sites differed significantly from 2012 to 2018 (t(`r round(mpa_2012_2018_ttest$parameter, 2)`) = `r round(mpa_2012_2018_ttest$statistic, 2)`, *p* < 0.05).
 
+
+##### 4. For non-MPA sites only, is there a significant mean size difference in lobsters observed in 2012 vs. 2018?
+
+```{r}
+# Results C, question 4.
+# 2 sample t-test Non-MPA sites 2012 vs. 2018
+
+non_mpa_2012_2018_ttest <- t.test(non_mpa_lobsters_2012, non_mpa_lobsters_2018)
+non_mpa_2012_2018_ttest
+
+```
+Mean lobster size in Non-MPA sites do not differ significantly from 2012 to 2018 (t(`r round(non_mpa_2012_2018_ttest$parameter, 2)`) = `r round(non_mpa_2012_2018_ttest$statistic, 2)`, *p* > 0.05).
 
 
 
