@@ -14,6 +14,7 @@ knitr::opts_chunk$set(echo = FALSE, message = FALSE)
 ```{r}
 library(tidyverse)
 library(janitor)
+library(kableExtra)
 ```
 
 
@@ -22,10 +23,13 @@ lobster_data <- read_csv("lobster_abundance_sbc_lter.csv") %>%
   clean_names() 
 
 lobster_data_clean <- lobster_data %>% 
-  tidyr::uncount(count)
+  tidyr::uncount(count) %>% 
+  mutate(sitetype = if_else(site %in% c("IVEE", "NAPL"), "MPA", "Non-MPA" )) 
 
 lobster_bysite <- lobster_data_clean %>% 
-  count(year, site)
+  count(year, site, sitetype)
+
+
 
 ```
 ### Introduction:
@@ -54,14 +58,14 @@ lobster_count_graph$year <- gsub("2018", "'18", lobster_count_graph$year)
 
 ggplot(lobster_count_graph, aes(x = year, 
                            y = n)) +
-  geom_col(width = 0.8, 
-           aes(color = site,
+  geom_col(aes(color = site,
                fill = site)) +
   labs(x = "Year",
        y = "Count") +
   scale_y_continuous(limits = c(0,1000), expand = c(0,0)) +
-   facet_wrap(~site) 
-  
+  facet_wrap(~site) 
+
+
  
 
 
@@ -238,4 +242,19 @@ non_mpa_2012_2018_ttest
 Mean lobster size in Non-MPA sites do not differ significantly from 2012 to 2018 (t(`r round(non_mpa_2012_2018_ttest$parameter, 2)`) = `r round(non_mpa_2012_2018_ttest$statistic, 2)`, *p* > 0.05).
 
 
+```{r}
+
+lobster_summary <- lobster_data_clean %>% 
+  filter(year %in% c("2012", "2018")) %>% 
+  group_by(site, year) %>% 
+  filter(site %in% c("IVEE", "NAPL")) %>% 
+  summarize(
+    mean_size = mean(size_mm, na.rm = TRUE),
+    sd_size = sd(size_mm, na.rm = TRUE),
+    sample_n = n()
+  )
+  
+
+
+```
 
