@@ -75,7 +75,7 @@ ggplot(lobster_count_graph, aes(x = year,
 
 ```
 
-***Figure 1.*** *Spiny Lobster population from years 2012 - 2018 for MPA and non MPA sites. MPA sites are colored red while non MPA are colored blue. Data: SBC LTER
+***Figure 1.*** *Spiny Lobster population from years 2012 - 2018 for MPA and non MPA sites. MPA sites are colored red while non MPA are colored blue. Data: Santa Barbara Coastal Long-Term Ecological Research*
 
 
 
@@ -255,28 +255,13 @@ non_mpa_2012_2018_ttest
 ```
 Mean lobster size in Non-MPA sites do not differ significantly from 2012 to 2018 (t(`r round(non_mpa_2012_2018_ttest$parameter, 2)`) = `r round(non_mpa_2012_2018_ttest$statistic, 2)`, *p* > 0.05).
 
-
-```{r}
-
-lobster_summary <- lobster_data_clean %>% 
-  filter(year %in% c("2012", "2018")) %>% 
-  group_by(site, year) %>% 
-  filter(site %in% c("IVEE", "NAPL")) %>% 
-  summarize(
-    mean_size = mean(size_mm, na.rm = TRUE),
-    sd_size = sd(size_mm, na.rm = TRUE),
-    sample_n = n()
-  )
-  
-
-
-```
+***Table 1.*** *Lobster's mean size, standard deviation, and sample size of MPA and non-MPA sites for years 2012 and 2018. Data: 
 
 ```{r}
 # For 2012
 lobster_table_2012 <- lobster_data_clean %>%
-  filter(year == "2012") %>% 
-  group_by(site) %>% 
+  filter(year %in% c("2012","2018")) %>% 
+  group_by(year, sitetype) %>% 
   summarize(
     mean_size = mean(size_mm, na.rm = TRUE),
     sd_size = sd(size_mm, na.rm = TRUE),
@@ -285,41 +270,39 @@ lobster_table_2012 <- lobster_data_clean %>%
 # For 2018
 lobster_table_2018 <- lobster_data_clean %>% 
   filter(year == "2018") %>% 
-  group_by(site) %>% 
+  group_by(sitetype) %>% 
   summarize(
     mean_size = mean(size_mm, na.rm = TRUE),
     sd_size = sd(size_mm, na.rm = TRUE),
     sample_n = n())
 
 lobster_table_2012 %>% 
-  kable(col.names = c("Site", 
+  kable(col.names = c("Sitetype", 
                      "Mean Size", 
                      "Standard Deviation", 
                      "Sample Size")
         ) %>% 
   kable_styling(bootstrap_options = "striped",
                 full_width = F,
-                position = "center"
+                position = "float_left"
   ) %>% 
-  add_header_above(c("2012 Lobster Size Summary" = 4)) %>% 
-  row_spec(3, bold = T, color = "white", background = "#D7261E") %>% 
-  row_spec(5, bold = T, color = "white", background = "#D7261E")
-
+  add_header_above(c("2012 Lobster Size Summary" = 4), font_size = 20, color = "blue")
 
 
 lobster_table_2018 %>% 
-    kable(col.names = c("Site", 
+    kable(col.names = c("Sitetype", 
                      "Mean Size", 
                      "Standard Deviation", 
                      "Sample Size")
         ) %>% 
   kable_styling(bootstrap_options = "striped", 
                 full_width = F,
-                position = "center"
+                position = "float_right"
   ) %>% 
-    add_header_above(c("2018 Lobster Size Summary" = 4)) %>% 
-    row_spec(3, bold = T, color = "white", background = "#D7261E") %>% 
-    row_spec(5, bold = T, color = "white", background = "#D7261E")
+    add_header_above(c("2018 Lobster Size Summary" = 4), font_size = 20, color = "blue") 
+
+
+
 ```
 
 
