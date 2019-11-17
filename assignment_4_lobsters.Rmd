@@ -90,9 +90,8 @@ ggplot(lobster_count_graph, aes(x = year,
 
 #### Results B
 
-Trends in community size structure were compared in 2012 and 2018
-Community size structure in 2012 
-Communi
+Trends in lobster community size structure were compared in 2012 and 2018, when the Marine Protected Areas were established, and six years after. (Figure 2.) Mean size distribution as well as lobster abundance in the MPA sites significantly grew from 2012 to 2018, while mean size distribution did not change significantly in Non-MPA sites. 
+
 ```{r}
 # RESULTS B
 # For 2012
@@ -116,7 +115,7 @@ ggplot(data = lobster_data_2018, aes(x = size_mm))+
   labs(x = "Size (mm)", y = "Counts", title = "2018 Lobster Size Distribution")
                 
 ```
-
+***Figure 2.*** *Lobster size distribution 
 
 #### Results C
 
@@ -130,7 +129,7 @@ lobster_smry_2012 <- lobster_data_2012 %>%
             sd_size= sd(size_mm, na.rm = TRUE),
             sample_n = n())
 
-# Mean size(mm) for Marine Protected Areas (MPA)==
+# Mean size(mm) for Marine Protected Areas (MPA)
 lobster_smry_mpa_2012 <- lobster_data_2012 %>% 
   filter(site %in% c("IVEE", "NAPL")) 
 mean_mpa_2012 <- mean(lobster_smry_mpa_2012$size_mm, na.rm = TRUE)
