@@ -296,7 +296,7 @@ lobster_table_2012 %>%
                      "Standard Deviation", 
                      "Sample Size")
         ) %>% 
-  kable_styling(bootstrap_options = "striped", 
+  kable_styling(bootstrap_options = "striped",
                 full_width = F,
                 position = "center"
   ) %>% 
@@ -333,7 +333,6 @@ lobster_table_2018 %>%
 **Thiault, L., Kernaleguen, L., Osenberg, C. W., Lison de Loma, T., Chancerelle, Y., Siu, G., and Claudet, J.. 2019.** Ecological evaluation of a marine protected area network: a progressive‐change BACIPS approach. Ecosphere 10(2)
 
 **Yaeger, K., Culver, C., Schroeter, S., Page, H. (2017).** Utility of a Collaborative At-Sea Sampling Program (CASP) for the California Spiny Lobster Commercial Fishery: Catch Characteristics and Implications for Management. Marine and Coastal Fisheries 9(1): 190-202.
-
 
 
 
