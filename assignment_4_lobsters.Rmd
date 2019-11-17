@@ -58,8 +58,8 @@ lobster_count_graph$year <- gsub("2018", "'18", lobster_count_graph$year)
 
 ggplot(lobster_count_graph, aes(x = year, 
                            y = n)) +
-  geom_col(aes(color = site,
-               fill = site)) +
+  geom_col(aes(color = sitetype,
+               fill = sitetype)) +
   labs(x = "Year",
        y = "Count") +
   scale_y_continuous(limits = c(0,1000), expand = c(0,0)) +
