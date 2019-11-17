@@ -42,6 +42,8 @@ Data for the California spiny lobster abundance and location from 2012 – 2018 
 
 #### Results A
 
+Trends in spiny lobster populations were compared for MPA and non MPA sites (Figure 1). Generally, the populations from MPA sites (IVEE and NAPL) increased more than the non MPA sites since 2012. Two of the three non MPA sites (AQUE and MOHK)  
+
 ```{r}
 # Results A messing around (probably better) (nEEED TO MAKE A NEW MPA COLUMNN)
 lobster_count_graph <- lobster_bysite %>% 
