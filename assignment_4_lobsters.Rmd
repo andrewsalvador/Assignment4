@@ -117,7 +117,17 @@ ggplot(data = lobster_data_2018, aes(x = size_mm))+
   scale_y_continuous(limits = c(0,150), expand = c(0,0))
   labs(x = "Size (mm)", y = "Counts", title = "2018 Lobster Size Distribution")
 
+lobster_data_2012_2018 <- lobster_data_clean %>% 
+  filter(year %in% c("2012", "2018"))
 
+ggplot(lobster_data_2012, aes(x = size_mm)) +
+  geom_histogram() +
+  facet_wrap(~site)
+
+ggplot(lobster_data_2012_2018, aes(x = size_mm)) +
+  geom_histogram(data = transform(lobster_data_2012_2018, site = NULL), fill = "gray80") +
+  geom_histogram(aes(fill = "2012")) +
+  facet_wrap(~site) 
   
                 
 ```
@@ -211,7 +221,6 @@ non_mpa_lobsters_2018 <- lobster_smry_non_mpa_2018 %>%
 #Results C, Question 1.
 # 2 sample t-test 2012 MPA vs Non-MPA lobsters
 mpa_v_non_mpa_2012_ttest <- t.test(mpa_lobsters_2012, non_mpa_lobsters_2012)
-mpa_v_non_mpa_2012_ttest
 
 
 ```
@@ -223,7 +232,7 @@ Mean lobster size in MPA vs Non-MPA sites differed significantly in 2012 (t(`r r
 ```{r}
 #Results C, Question 2. 
 mpa_v_non_mpa_2018_ttest <- t.test(mpa_lobsters_2018, non_mpa_lobsters_2018)
-mpa_v_non_mpa_2018_ttest
+
 ```
 
 Mean lobster size in MPA vs non-MPA sites differed significantly in 2018 (t(`r round(mpa_v_non_mpa_2018_ttest$parameter, 2)`) = `r round(mpa_v_non_mpa_2018_ttest$statistic, 2)`, *p* < 0.05). Mean lobster size in MPA sites was 5% larger than in non-MPA sites, with an actual difference of 3.95mm. Lobsters observed in MPA sites in 2018, mean = 77.57mm, n = 1244, while lobsters observed non-MPA sites mean = 73.62mm, n = 561. 
@@ -234,7 +243,7 @@ Mean lobster size in MPA vs non-MPA sites differed significantly in 2018 (t(`r r
 # Results C, Question 3. 
 # 2 Sample t-test MPA lobsters 2012 and 2018
 mpa_2012_2018_ttest <- t.test(mpa_lobsters_2012, mpa_lobsters_2018)
-mpa_2012_2018_ttest
+
 ```
 
 Mean lobster size in MPA sites differed significantly from 2012 to 2018 (t(`r round(mpa_2012_2018_ttest$parameter, 2)`) = `r round(mpa_2012_2018_ttest$statistic, 2)`, *p* < 0.05). There was a 15% increase in MPA site lobster size from 2012 to 2018, with an actual increase of 10.19mm. For lobster size in MPA sites in 2012, mean = 67.38mm, n = 32, while in MPA sites in 2018 mean size = 77.57mm, n = 1244.
@@ -247,7 +256,7 @@ Mean lobster size in MPA sites differed significantly from 2012 to 2018 (t(`r ro
 # 2 sample t-test Non-MPA sites 2012 vs. 2018
 
 non_mpa_2012_2018_ttest <- t.test(non_mpa_lobsters_2012, non_mpa_lobsters_2018)
-non_mpa_2012_2018_ttest
+
 
 ```
 Mean lobster size in Non-MPA sites do not differ significantly from 2012 to 2018 (t(`r round(non_mpa_2012_2018_ttest$parameter, 2)`) = `r round(non_mpa_2012_2018_ttest$statistic, 2)`, *p* > 0.05). The sample mean lobster size in 2012 non-MPA sites, mean = 74.92mm, n = 199, and sample mean lobster size in 2018 non-MPA sites, mean = 73.62mm, n = 561. 
