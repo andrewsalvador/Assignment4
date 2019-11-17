@@ -351,45 +351,6 @@ lobster_table_2018 %>%
 
 
 
-
-
-
-
-Notes:
-Change fill or color to sitetype
-Edit the x scale
-add title to results A
-
-Results C #3 and #4? should be lobster size?
-```{r}
-# MPA 2012
-mpa_lobsters_2012_size <- lobster_smry_mpa_2012 %>% 
-  count(site) %>% 
-  pull(n)
-
-# MPA 2018
-mpa_lobsters_2018_size <- lobster_smry_mpa_2018 %>% 
-  count(site) %>% 
-  pull(n)
-
-mpa_12_18_ttest <- t.test(mpa_lobsters_2012_size,mpa_lobsters_2018_size)
-mpa_12_18_ttest
-  
-# NonMPA 2012
-non_mpa_lobsters_2012_size <- lobster_smry_non_mpa_2012 %>% 
-  count(site) %>% 
-  pull(n)
-
-# NonMPA 2018
-non_mpa_lobster_2018_size <- lobster_smry_non_mpa_2018 %>% 
-  count(site) %>% 
-  pull(n)
-
-non_mpa_12_18_ttest <- t.test(non_mpa_lobsters_2012_size, non_mpa_lobster_2018_size)
-non_mpa_12_18_ttest
-```
-
-
  
 
 
