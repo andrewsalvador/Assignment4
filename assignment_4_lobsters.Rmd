@@ -88,6 +88,9 @@ ggplot(lobster_count_graph, aes(x = year,
 
 #### Results B
 
+Trends in community size structure were compared in 2012 and 2018
+Community size structure in 2012 
+Communi
 ```{r}
 # RESULTS B
 # For 2012
