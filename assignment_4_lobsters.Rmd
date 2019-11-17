@@ -349,15 +349,6 @@ lobster_table_2018 %>%
 
 
 
-```{r}
-ggplot(aes(x = size_mm))+
-  geom_histogram(data = lobster_data_2012, aes(fill = site))+
-  geom_historgram(data = lobster_data_2018, aes(fill =site))
-```
-
-
-
-
 
 
 
