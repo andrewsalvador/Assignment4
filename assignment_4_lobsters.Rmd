@@ -33,8 +33,10 @@ lobster_bysite <- lobster_data_clean %>%
 
 ```
 ### Introduction:
+The California spiny lobster (*Panulirus interruptus*) is an ecologically important species that has supported valuable commercial and recreational fisheries since the late 1800s (Yaeger et al. 2017). These invertebrates are essential to the giant kelp forests as they prey on kelp-eating sea urchins. Data provided by the Santa Barbara Coastal Long-Term Ecological Research (SBC LTER) program consists of 5 total sampling lobster sites: Arroyo Quemado, Mohawk, Carpinteria, Naples, and Isla Vista (Reed 2019). Out of these 5, Naples and Isla Vista lobster sites are considered Marine Protected Areas (MPA). Studying MPA networks, with varying degrees of protection and use, can help achieve both conservation and fisheries management (Thiault et al. 2019). In this study, the abundance and size of lobsters are presented and analyzed to determine the effects of MPA sites. Specially, the annual lobster abundance for each site, lobster size distribution shifts for 2012 and 2018, and a summary table of sample statistics are presented. 
 
 ### Data and Methods:
+Data for the California spiny lobster abundance and location from 2012 – 2018 were collected and provided by the SBC LTER program (Reed 2019). Sampling occurred late summer before the start of fishing season at the five kelp forest study sites. Naples and Isla Vista are MPA sites while Arroyo Quemado, Mohawk, and Carpinteria are non MPA sites. The number and sizes of spiny lobster are recorded by divers in four 60 x 5 m lobster transects that are associated with each permanent SBC LTER kelp forest community survey transect. Mean lobster size was compared for MPA and non MPA sites by two-sample t-tests (α = 0.05 throughout). All analyses and figures were prepared using R software version 3.6.1.
 
 ### Results {.tabset .tabset-fade}
 
@@ -259,47 +261,6 @@ lobster_summary <- lobster_data_clean %>%
 
 ```
 
-
-
-
-
-### Summary:
-
-### References:
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-##### Summary Tables
-
-kableExtra Table:
 ```{r}
 # For 2012
 lobster_table_2012 <- lobster_data_clean %>%
@@ -348,9 +309,52 @@ lobster_table_2018 %>%
     add_header_above(c("2018 Lobster Size Summary" = 4)) %>% 
     row_spec(3, bold = T, color = "white", background = "#D7261E") %>% 
     row_spec(5, bold = T, color = "white", background = "#D7261E")
-  
-
 ```
+
+
+
+
+
+### Summary:
+
+### References:
+**Reed D. 2019.** SBC LTER: Reef: Abundance, size and fishing effort for California Spiny Lobster (Panulirus interruptus), ongoing since 2012. Environmental Data Initiative. https://doi.org/10.6073/pasta/a593a675d644fdefb736750b291579a0. Dataset accessed 11/17/2019.
+
+**Thiault, L., Kernaleguen, L., Osenberg, C. W., Lison de Loma, T., Chancerelle, Y., Siu, G., and Claudet, J.. 2019.** Ecological evaluation of a marine protected area network: a progressive‐change BACIPS approach. Ecosphere 10(2)
+
+**Yaeger, K., Culver, C., Schroeter, S., Page, H. (2017).** Utility of a Collaborative At-Sea Sampling Program (CASP) for the California Spiny Lobster Commercial Fishery: Catch Characteristics and Implications for Management. Marine and Coastal Fisheries 9(1): 190-202.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Notes:
 Change fill or color to sitetype
 Edit the x scale
@@ -386,5 +390,6 @@ non_mpa_12_18_ttest
 ```
 
 
-Introduction:
+ 
+
 
