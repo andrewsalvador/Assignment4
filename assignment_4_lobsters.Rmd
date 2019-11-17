@@ -42,7 +42,7 @@ Data for the California spiny lobster abundance and location from 2012 – 2018 
 
 #### Results A
 
-Trends in spiny lobster populations were compared for MPA and non MPA sites (Figure 1). Generally, the populations from MPA sites (IVEE and NAPL) increased more than the non MPA sites since 2012. Two of the three non MPA sites (AQUE and MOHK)  
+Trends in spiny lobster populations were compared for MPA and non MPA sites (Figure 1). Generally, the population size for all sites increased. The populations from MPA sites (IVEE and NAPL) increased more than the non MPA sites since 2012. One of the three non MPA sites (AQUE) experienced the least amount of population increase.  
 
 ```{r}
 # Results A messing around (probably better) (nEEED TO MAKE A NEW MPA COLUMNN)
@@ -75,6 +75,7 @@ ggplot(lobster_count_graph, aes(x = year,
 
 ```
 
+***Figure 1.*** *Spiny Lobster population from years 2012 - 2018 for MPA and non MPA sites. MPA sites are colored red while non MPA are colored blue. Data: SBC LTER
 
 
 
@@ -113,7 +114,11 @@ lobster_data_2018 <- lobster_data_clean %>%
 ggplot(data = lobster_data_2018, aes(x = size_mm))+
   geom_histogram(aes(fill = site))+
   facet_wrap(~site, scales = "free")+
+  scale_x_continuous(limits = c(40,160))+
   labs(x = "Size (mm)", y = "Counts", title = "2018 Lobster Size Distribution")
+
+
+  
                 
 ```
 
@@ -345,6 +350,11 @@ lobster_table_2018 %>%
 
 
 
+```{r}
+ggplot(aes(x = size_mm))+
+  geom_histogram(data = lobster_data_2012, aes(fill = site))+
+  geom_historgram(data = lobster_data_2018, aes(fill =site))
+```
 
 
 
