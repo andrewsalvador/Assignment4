@@ -356,14 +356,15 @@ lobster_table_2018 %>%
 
 
 WHAT WE NEED TO DO:
--Text above figures
--Figure captions
--Table caption
--Get rid of the t-test boxes and write a paragraph summarizing the statistical tests with additional metrics (actual mean, etc.)
--Summary
+-Text above figures (Benson A, Andrew B)
+-Figure captions (Benson A, Andrew B)
+-Table caption (Benson)
+-Get rid of the t-test boxes and write a paragraph summarizing the statistical tests with additional metrics (actual mean, etc.) (Andrew)
+-Summary (Benson)
 
 Random stuff:
--Fix figure B (make 1 figure?)
+-Fix figure B (make 1 figure?) (Andrew)
+-Fix table (Benson)
 
  
 
