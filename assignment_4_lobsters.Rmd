@@ -63,7 +63,7 @@ ggplot(lobster_count_graph, aes(x = year,
   labs(x = "Year",
        y = "Count") +
   scale_y_continuous(limits = c(0,1000), expand = c(0,0)) +
-  facet_wrap(~site) 
+  facet_wrap(~site, scales = "free") 
 
 
  
@@ -95,6 +95,7 @@ lobster_data_2012 <- lobster_data_clean %>%
 ggplot(data = lobster_data_2012, aes(x = size_mm))+
   geom_histogram(aes(fill = site))+
   facet_wrap(~site, scales ="free")+
+  scale_y_continuous(limits = c(0,15), expand = c(0,0))+
   labs(x = "Size (mm)", y = "Counts", title = "2012 Lobster Size Distribution")
 
 # For 2018
@@ -121,7 +122,7 @@ lobster_smry_2012 <- lobster_data_2012 %>%
             sd_size= sd(size_mm, na.rm = TRUE),
             sample_n = n())
 
-# Mean size(mm) for Marine Protected Areas (MPA)
+# Mean size(mm) for Marine Protected Areas (MPA)==
 lobster_smry_mpa_2012 <- lobster_data_2012 %>% 
   filter(site %in% c("IVEE", "NAPL")) 
 mean_mpa_2012 <- mean(lobster_smry_mpa_2012$size_mm, na.rm = TRUE)
@@ -257,4 +258,133 @@ lobster_summary <- lobster_data_clean %>%
 
 
 ```
+
+
+
+
+
+### Summary:
+
+### References:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+kableExtra Table:
+```{r}
+# For 2012
+lobster_table_2012 <- lobster_data_clean %>%
+  filter(year == "2012") %>% 
+  group_by(site) %>% 
+  summarize(
+    mean_size = mean(size_mm, na.rm = TRUE),
+    sd_size = sd(size_mm, na.rm = TRUE),
+    sample_n = n())
+
+# For 2018
+lobster_table_2018 <- lobster_data_clean %>% 
+  filter(year == "2018") %>% 
+  group_by(site) %>% 
+  summarize(
+    mean_size = mean(size_mm, na.rm = TRUE),
+    sd_size = sd(size_mm, na.rm = TRUE),
+    sample_n = n())
+
+lobster_table_2012 %>% 
+  kable(col.names = c("Site", 
+                     "Mean Size", 
+                     "Standard Deviation", 
+                     "Sample Size")
+        ) %>% 
+  kable_styling(bootstrap_options = "striped", 
+                full_width = F,
+                position = "center"
+  ) %>% 
+  add_header_above(c("2012 Lobster Size Summary" = 4)) %>% 
+  row_spec(3, bold = T, color = "white", background = "#D7261E") %>% 
+  row_spec(5, bold = T, color = "white", background = "#D7261E")
+
+
+
+lobster_table_2018 %>% 
+    kable(col.names = c("Site", 
+                     "Mean Size", 
+                     "Standard Deviation", 
+                     "Sample Size")
+        ) %>% 
+  kable_styling(bootstrap_options = "striped", 
+                full_width = F,
+                position = "center"
+  ) %>% 
+    add_header_above(c("2018 Lobster Size Summary" = 4)) %>% 
+    row_spec(3, bold = T, color = "white", background = "#D7261E") %>% 
+    row_spec(5, bold = T, color = "white", background = "#D7261E")
+  
+
+```
+Notes:
+Change fill or color to sitetype
+Edit the x scale
+add title to results A
+
+Results C #3 and #4? should be lobster size?
+```{r}
+# MPA 2012
+mpa_lobsters_2012_size <- lobster_smry_mpa_2012 %>% 
+  count(site) %>% 
+  pull(n)
+
+# MPA 2018
+mpa_lobsters_2018_size <- lobster_smry_mpa_2018 %>% 
+  count(site) %>% 
+  pull(n)
+
+mpa_12_18_ttest <- t.test(mpa_lobsters_2012_size,mpa_lobsters_2018_size)
+mpa_12_18_ttest
+  
+# NonMPA 2012
+non_mpa_lobsters_2012_size <- lobster_smry_non_mpa_2012 %>% 
+  count(site) %>% 
+  pull(n)
+
+# NonMPA 2018
+non_mpa_lobster_2018_size <- lobster_smry_non_mpa_2018 %>% 
+  count(site) %>% 
+  pull(n)
+
+non_mpa_12_18_ttest <- t.test(non_mpa_lobsters_2012_size, non_mpa_lobster_2018_size)
+non_mpa_12_18_ttest
+```
+
+
+Introduction:
 
