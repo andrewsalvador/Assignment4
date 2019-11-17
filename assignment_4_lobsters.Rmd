@@ -97,7 +97,8 @@ lobster_data_2012 <- lobster_data_clean %>%
 ggplot(data = lobster_data_2012, aes(x = size_mm))+
   geom_histogram(aes(fill = site))+
   facet_wrap(~site, scales ="free")+
-  scale_y_continuous(limits = c(0,15), expand = c(0,0))+
+  scale_y_continuous(limits = c(0,20), expand = c(0,0))+
+  scale_x_continuous(limits = c(40,160))+
   labs(x = "Size (mm)", y = "Counts", title = "2012 Lobster Size Distribution")
 
 # For 2018
