@@ -415,54 +415,10 @@ summary {
 ## 
 ## attr(,&quot;class&quot;)
 ## [1] &quot;labels&quot;</code></pre>
-<p><strong><em>Figure 2.</em></strong> *Lobster size distribution</p>
+<p><strong><em>Figure 2.</em></strong> <em>Lobster size distribution in MPA and Non-MPA sites from 2012 to 2018. Size in millimeters shown on x-axis, lobster count shown on y-axis.</em></p>
 </div>
 <div id="results-c" class="section level4">
 <h4>Results C</h4>
-<pre><code>## 
-##  One Sample t-test
-## 
-## data:  mpa_lobsters_2012
-## t = 31.358, df = 31, p-value &lt; 2.2e-16
-## alternative hypothesis: true mean is not equal to 0
-## 95 percent confidence interval:
-##  62.99293 71.75707
-## sample estimates:
-## mean of x 
-##    67.375</code></pre>
-<pre><code>## 
-##  One Sample t-test
-## 
-## data:  mpa_lobsters_2018
-## t = 233.76, df = 1243, p-value &lt; 2.2e-16
-## alternative hypothesis: true mean is not equal to 0
-## 95 percent confidence interval:
-##  76.91573 78.21771
-## sample estimates:
-## mean of x 
-##  77.56672</code></pre>
-<pre><code>## 
-##  One Sample t-test
-## 
-## data:  non_mpa_lobsters_2012
-## t = 85.14, df = 198, p-value &lt; 2.2e-16
-## alternative hypothesis: true mean is not equal to 0
-## 95 percent confidence interval:
-##  73.18922 76.66003
-## sample estimates:
-## mean of x 
-##  74.92462</code></pre>
-<pre><code>## 
-##  One Sample t-test
-## 
-## data:  non_mpa_lobsters_2018
-## t = 172.74, df = 560, p-value &lt; 2.2e-16
-## alternative hypothesis: true mean is not equal to 0
-## 95 percent confidence interval:
-##  72.78285 74.45708
-## sample estimates:
-## mean of x 
-##  73.61996</code></pre>
 <div id="for-2012-observations-is-there-a-significant-difference-in-lobster-size-between-mpa-and-non-mpa-sites" class="section level5">
 <h5>1. For 2012 observations, is there a significant difference in lobster size between MPA and non-MPA sites?</h5>
 <pre><code>## 
@@ -476,7 +432,7 @@ summary {
 ## sample estimates:
 ## mean of x mean of y 
 ##  67.37500  74.92462</code></pre>
-<p>Mean lobster size in MPA vs Non-MPA sites differed significantly in 2012 (t(42.09) = -3.25, <em>p</em> &lt; 0.05).</p>
+<p>Mean lobster size in MPA vs Non-MPA sites differed significantly in 2012 (t(42.09) = -3.25, <em>p</em> &lt; 0.05). Mean lobster size in Non-MPA sites was 11% larger than in MPA sites, with an actual difference of 7.55mm. For lobsters observed in MPA sites in 2012, mean = 67.37mm, n = 32, while lobsters observed in Non-MPA sites in 2012, mean = 74.92mm, n = 199.</p>
 </div>
 <div id="for-2018-observations-is-there-a-significant-difference-in-lobster-size-between-mpa-and-non-mpa-sites" class="section level5">
 <h5>2. For 2018 observations, is there a significant difference in lobster size between MPA and non-MPA sites?</h5>
@@ -491,7 +447,7 @@ summary {
 ## sample estimates:
 ## mean of x mean of y 
 ##  77.56672  73.61996</code></pre>
-<p>Mean lobster size in MPA vs Non-MPA sites differed significantly in 2018 (t(1239.51) = 7.31, <em>p</em> &lt; 0.05).</p>
+<p>Mean lobster size in MPA vs non-MPA sites differed significantly in 2018 (t(1239.51) = 7.31, <em>p</em> &lt; 0.05). Mean lobster size in MPA sites was 5% larger than in non-MPA sites, with an actual difference of 3.95mm. Lobsters observed in MPA sites in 2018, mean = 77.57mm, n = 1244, while lobsters observed non-MPA sites mean = 73.62mm, n = 561.</p>
 </div>
 <div id="for-mpa-sites-only-is-there-a-significant-mean-size-difference-in-lobsters-observed-in-2012-vs.2018" class="section level5">
 <h5>3. For MPA sites only, is there a significant mean size difference in lobsters observed in 2012 vs. 2018?</h5>
@@ -506,7 +462,7 @@ summary {
 ## sample estimates:
 ## mean of x mean of y 
 ##  67.37500  77.56672</code></pre>
-<p>Mean lobster size in MPA sites differed significantly from 2012 to 2018 (t(32.5) = -4.69, <em>p</em> &lt; 0.05).</p>
+<p>Mean lobster size in MPA sites differed significantly from 2012 to 2018 (t(32.5) = -4.69, <em>p</em> &lt; 0.05). There was a 15% increase in MPA site lobster size from 2012 to 2018, with an actual increase of 10.19mm. For lobster size in MPA sites in 2012, mean = 67.38mm, n = 32, while in MPA sites in 2018 mean size = 77.57mm, n = 1244.</p>
 </div>
 <div id="for-non-mpa-sites-only-is-there-a-significant-mean-size-difference-in-lobsters-observed-in-2012-vs.2018" class="section level5">
 <h5>4. For non-MPA sites only, is there a significant mean size difference in lobsters observed in 2012 vs. 2018?</h5>
@@ -521,7 +477,8 @@ summary {
 ## sample estimates:
 ## mean of x mean of y 
 ##  74.92462  73.61996</code></pre>
-<p>Mean lobster size in Non-MPA sites do not differ significantly from 2012 to 2018 (t(296.01) = 1.33, <em>p</em> &gt; 0.05).</p>
+<p>Mean lobster size in Non-MPA sites do not differ significantly from 2012 to 2018 (t(296.01) = 1.33, <em>p</em> &gt; 0.05). The sample mean lobster size in 2012 non-MPA sites, mean = 74.92mm, n = 199, and sample mean lobster size in 2018 non-MPA sites, mean = 73.62mm, n = 561.</p>
+<p>MEASURES OF UNCERTAINTY?? CONFIDENCE INTERVAL?</p>
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
