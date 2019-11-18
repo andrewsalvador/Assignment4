@@ -124,9 +124,9 @@ ggplot(lobster_data_2012, aes(x = size_mm)) +
   geom_histogram() +
   facet_wrap(~site)
 
-ggplot(lobster_data_2012_2018, aes(x = size_mm)) +
-  geom_histogram(data = transform(lobster_data_2012_2018, site = NULL), fill = "gray80") +
-  geom_histogram(aes(fill = "2012")) +
+ggplot(lobster_data_2012, aes(x = size_mm)) +
+  geom_histogram(data = transform(lobster_data_2018, year = NULL), fill = "gray80") +
+  geom_histogram(aes(fill = year)) +
   facet_wrap(~site) 
   
                 
@@ -215,6 +215,40 @@ non_mpa_lobsters_2018 <- lobster_smry_non_mpa_2018 %>%
 
 ```
 
+
+
+***Table 1.*** *Lobster's mean size, standard deviation, and sample size of MPA and non-MPA sites for years 2012 and 2018. Data: 
+
+```{r}
+# For both
+lobster_table_both <- lobster_data_clean %>%
+  filter(year %in% c("2012","2018")) %>% 
+  group_by(sitetype, year) %>% 
+  summarize(
+    mean_size = mean(size_mm, na.rm = TRUE),
+    sd_size = sd(size_mm, na.rm = TRUE),
+    sample_n = n())
+
+lobster_table_both %>% 
+  kable(col.names = c("Sitetype",
+                     "Year", 
+                     "Mean Size", 
+                     "Standard Deviation", 
+                     "Sample Size")
+        ) %>% 
+  kable_styling(bootstrap_options = "striped",
+                full_width = F,
+                position = "center"
+  ) %>% 
+  add_header_above(c("Lobster Size Summary" = 5), font_size = 20, color = "blue")
+
+
+
+
+
+
+```
+
 ##### 1. For 2012 observations, is there a significant difference in lobster size between MPA and non-MPA sites?
 
 ```{r}
@@ -261,41 +295,6 @@ non_mpa_2012_2018_ttest <- t.test(non_mpa_lobsters_2012, non_mpa_lobsters_2018)
 ```
 Mean lobster size in Non-MPA sites do not differ significantly from 2012 to 2018 (t(`r round(non_mpa_2012_2018_ttest$parameter, 2)`) = `r round(non_mpa_2012_2018_ttest$statistic, 2)`, *p* > 0.05). The sample mean lobster size in 2012 non-MPA sites, mean = 74.92mm, n = 199, and sample mean lobster size in 2018 non-MPA sites, mean = 73.62mm, n = 561. 
 
-MEASURES OF UNCERTAINTY?? CONFIDENCE INTERVAL?
-
-***Table 1.*** *Lobster's mean size, standard deviation, and sample size of MPA and non-MPA sites for years 2012 and 2018. Data: 
-
-```{r}
-# For both
-lobster_table_both <- lobster_data_clean %>%
-  filter(year %in% c("2012","2018")) %>% 
-  group_by(sitetype, year) %>% 
-  summarize(
-    mean_size = mean(size_mm, na.rm = TRUE),
-    sd_size = sd(size_mm, na.rm = TRUE),
-    sample_n = n())
-
-lobster_table_both %>% 
-  kable(col.names = c("Sitetype",
-                     "Year", 
-                     "Mean Size", 
-                     "Standard Deviation", 
-                     "Sample Size")
-        ) %>% 
-  kable_styling(bootstrap_options = "striped",
-                full_width = F,
-                position = "center"
-  ) %>% 
-  add_header_above(c("Lobster Size Summary" = 5), font_size = 20, color = "blue")
-
-
-
-
-
-
-```
-
-
 
 
 
@@ -319,10 +318,6 @@ lobster_table_both %>%
 
 
 
-push test
-
-
-
 
 
 
@@ -331,12 +326,11 @@ WHAT WE NEED TO DO:
 -Text above figures (Benson A, Andrew B)
 -Figure captions (Benson A, Andrew B)
 -Table caption (Benson)
--Get rid of the t-test boxes and write a paragraph summarizing the statistical tests with additional metrics (actual mean, etc.) (Andrew)
 -Summary (Benson)
 
 Random stuff:
 -Fix figure B (make 1 figure?) (Andrew)
--Fix table (Benson)
+
 
  
 
