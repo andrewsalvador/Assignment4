@@ -32,10 +32,10 @@ lobster_bysite <- lobster_data_clean %>%
 
 
 ```
-### Introduction
+## Introduction
 The California spiny lobster (*Panulirus interruptus*) is an ecologically important species that has supported valuable commercial and recreational fisheries since the late 1800s (Yaeger et al. 2017). These invertebrates are essential to the giant kelp forests as they prey on kelp-eating sea urchins. Data provided by the Santa Barbara Coastal Long-Term Ecological Research (SBC LTER) program consists of 5 total sampling lobster sites: Arroyo Quemado, Mohawk, Carpinteria, Naples, and Isla Vista (Reed 2019). Out of these 5, Naples and Isla Vista lobster sites are considered Marine Protected Areas (MPA). Studying MPA networks, with varying degrees of protection and use, can help achieve both conservation and fisheries management (Thiault et al. 2019). In this study, the abundance and size of lobsters are presented and analyzed to determine the effects of MPA sites. Specially, the annual lobster abundance for each site, lobster size distribution shifts for 2012 and 2018, and a summary table of sample statistics are presented. 
 
-### Data and Methods
+## Data and Methods
 Data for the California spiny lobster abundance and location from 2012 – 2018 were collected and provided by the SBC LTER program (Reed 2019). Sampling occurred late summer before the start of fishing season at the five kelp forest study sites. Naples and Isla Vista are MPA sites while Arroyo Quemado, Mohawk, and Carpinteria are non MPA sites. The number and sizes of spiny lobster are recorded by divers in four 60 x 5 m lobster transects that are associated with each permanent SBC LTER kelp forest community survey transect. Mean lobster size was compared for MPA and non MPA sites by two-sample t-tests (α = 0.05 throughout). All analyses and figures were prepared using R software version 3.6.1.
 
 ## Results {.tabset .tabset-fade}
@@ -43,7 +43,7 @@ Data for the California spiny lobster abundance and location from 2012 – 2018 
 ### Results A
 
 ##### Lobster count by site
-Trends in spiny lobster populations were compared for MPA and non-MPA sites (Figure 1). Generally, the population size for all sites increased. The populations from MPA sites (IVEE & NAPL) increased more than the non-MPA sites since 2012. One of the three non-MPA sites (AQUE) experienced the least amount of population increase.  
+Trends in lobster sample count were compared for MPA and non-MPA sites (Figure 1). Generally lobster abundance increased from 2012 to 2018. The sample populations from MPA sites (IVEE & NAPL) increased more than the non-MPA sites since 2012. One of the three non-MPA sites (AQUE) experienced very little increase in lobster abundance relative to the other sites. 
 
 ```{r}
 # Results A messing around (probably better) (nEEED TO MAKE A NEW MPA COLUMNN)
@@ -76,7 +76,7 @@ ggplot(lobster_count_graph, aes(x = year,
 
 ```
 
-***Figure 1.*** *Spiny Lobster population from years 2012 - 2018 for MPA and non-MPA sites. MPA sites are colored red while non-MPA are colored blue. Data: Santa Barbara Coastal Long-Term Ecological Research*
+***Figure 1.*** *Sample lobster counts from years 2012 - 2018 for MPA and non-MPA sites. MPA sites are colored red while non-MPA are colored blue. Data: Santa Barbara Coastal Long-Term Ecological Research*
 
 
 
@@ -294,12 +294,18 @@ Mean lobster size in Non-MPA sites do not differ significantly from 2012 to 2018
 
 
 
-#### Summary:
+## Summary
 
-#### References:
+- Lobster abundance in MPA sites increased more than non-MPA sites from 2012 to 2018 (Figure 1)
+- Mean lobster size distribution and abundance significantly increased in MPA sites (Figure 2)
+- Mean lobster size distribution and abundance was not significantly increase in non-MPA sites from 2012 to 2018 (Table 1)
+
+
+
+## References
 **Reed D. 2019.** SBC LTER: Reef: Abundance, size and fishing effort for California Spiny Lobster (Panulirus interruptus), ongoing since 2012. Environmental Data Initiative. https://doi.org/10.6073/pasta/a593a675d644fdefb736750b291579a0. Dataset accessed 11/17/2019.
 
-**Thiault, L., Kernaleguen, L., Osenberg, C. W., Lison de Loma, T., Chancerelle, Y., Siu, G., and Claudet, J.. 2019.** Ecological evaluation of a marine protected area network: a progressive‐change BACIPS approach. Ecosphere 10(2)
+**Thiault, L., Kernaleguen, L., Osenberg, C. W., Lison de Loma, T., Chancerelle, Y., Siu, G., and Claudet, J.. 2019.** Ecological evaluation of a marine protected area network: a progressive‐change BACIPS approach. Ecosphere 10(2).
 
 **Yaeger, K., Culver, C., Schroeter, S., Page, H. (2017).** Utility of a Collaborative At-Sea Sampling Program (CASP) for the California Spiny Lobster Commercial Fishery: Catch Characteristics and Implications for Management. Marine and Coastal Fisheries 9(1): 190-202.
 
