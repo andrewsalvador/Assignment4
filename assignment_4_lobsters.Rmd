@@ -33,17 +33,17 @@ lobster_bysite <- lobster_data_clean %>%
 
 ```
 ## Introduction
-The California spiny lobster (*Panulirus interruptus*) is an ecologically important species that has supported valuable commercial and recreational fisheries since the late 1800s (Yaeger et al. 2017). These invertebrates are essential to the giant kelp forests as they prey on kelp-eating sea urchins. Data provided by the Santa Barbara Coastal Long-Term Ecological Research (SBC LTER) program consists of 5 total sampling lobster sites: Arroyo Quemado, Mohawk, Carpinteria, Naples, and Isla Vista (Reed 2019). Out of these 5, Naples and Isla Vista lobster sites are considered Marine Protected Areas (MPA). Studying MPA networks, with varying degrees of protection and use, can help achieve both conservation and fisheries management (Thiault et al. 2019). In this study, the abundance and size of lobsters are presented and analyzed to determine the effects of MPA sites. Specially, the annual lobster abundance for each site, lobster size distribution shifts for 2012 and 2018, and a summary table of sample statistics are presented. 
+The California spiny lobster (*Panulirus interruptus*) is an ecologically important species that has supported valuable commercial and recreational fisheries since the late 1800s (Yaeger et al. 2017). These invertebrates are essential to the giant kelp forests as they prey on kelp-eating sea urchins. Data provided by the Santa Barbara Coastal Long-Term Ecological Research (SBC LTER) program consists of 5 total sampling lobster sites: Arroyo Quemado, Mohawk, Carpinteria, Naples, and Isla Vista (Reed 2019). Out of these 5, Naples and Isla Vista lobster sites are considered Marine Protected Areas (MPA). Studying MPA networks, with varying degrees of protection and use, can help achieve both conservation and fisheries management (Thiault et al. 2019). In this study, the abundance and size of lobsters are presented and analyzed to determine the effects of MPA sites. Specifically, the annual lobster abundance for each site, lobster size distribution shifts for 2012 and 2018, and a summary table of sample statistics are presented. 
 
 ## Data and Methods
-Data for the California spiny lobster abundance and location from 2012 – 2018 were collected and provided by the SBC LTER program (Reed 2019). Sampling occurred late summer before the start of fishing season at the five kelp forest study sites. Naples and Isla Vista are MPA sites while Arroyo Quemado, Mohawk, and Carpinteria are non MPA sites. The number and sizes of spiny lobster are recorded by divers in four 60 x 5 m lobster transects that are associated with each permanent SBC LTER kelp forest community survey transect. Mean lobster size was compared for MPA and non MPA sites by two-sample t-tests (α = 0.05 throughout). All analyses and figures were prepared using R software version 3.6.1.
+Data for the California spiny lobster abundance and location from 2012 – 2018 were collected and provided by the SBC LTER program (Reed 2019). Sampling occurred late summer before the start of fishing season at the five kelp forest study sites. Naples and Isla Vista are MPA sites while Arroyo Quemado, Mohawk, and Carpinteria are non MPA sites. The number and sizes of spiny lobster were recorded by divers in four 60 x 5 m lobster transects that are associated with each permanent SBC LTER kelp forest community survey transect. Mean lobster size was compared for MPA and non MPA sites by two-sample t-tests (α = 0.05 throughout). All analyses and figures were prepared using R software version 3.6.1.
 
 ## Results {.tabset .tabset-fade}
 
 ### Results A
 
 ##### Lobster count by site
-Trends in lobster sample count were compared for MPA and non-MPA sites (Figure 1). Generally lobster abundance increased from 2012 to 2018. The sample populations from MPA sites (IVEE & NAPL) increased more than the non-MPA sites since 2012. One of the three non-MPA sites (AQUE) experienced very little increase in lobster abundance relative to the other sites. 
+Trends in lobster counts were compared for MPA and non-MPA sites (Figure 1). Generally lobster abundance increased from 2012 to 2018. The sample populations from MPA sites (IVEE & NAPL) increased more than the non-MPA sites since 2012. One of the three non-MPA sites (AQUE) experienced very little increase in lobster abundance relative to the other sites. 
 
 ```{r}
 # Results A messing around (probably better) (nEEED TO MAKE A NEW MPA COLUMNN)
@@ -93,7 +93,7 @@ ggplot(lobster_count_graph, aes(x = year,
 ### Results B
 
 #### Lobster size distribution in 2012 & 2018
-Trends in lobster community size structure were compared in 2012 and 2018, when the Marine Protected Areas were established, and six years after. (Figure 2.) Mean size distribution as well as lobster abundance in the MPA sites (IVEE & NAPL) significantly grew from 2012 to 2018, while mean size distribution did not change significantly in non-MPA sites. 
+Trends in lobster community size structure were compared in 2012 and 2018: when the Marine Protected Areas were established, and six years after. (Figure 2.) Mean size distribution as well as lobster abundance in the MPA sites (IVEE & NAPL) significantly grew from 2012 to 2018, while mean size distribution did not change significantly in non-MPA sites. 
 
 ```{r}
 # RESULTS B
