@@ -125,7 +125,7 @@ ggplot(lobster_data_2012, aes(x = size_mm)) +
                 
 ```
 
-***Figure 2.*** *Lobster size distribution in 5 different sites from 2012 to 2018. Size in millimeters shown on x-axis, lobster count shown on y-axis. Data: Santa Barbara Coastal Long-Term Ecological Research*
+***Figure 2.*** *Lobster size distribution in 5 different sites from 2012 to 2018. Size in millimeters shown on x-axis, lobster count shown on y-axis. Data: Santa Barbara Coastal Long-Term Ecological Research.*
 
 #### Results C
 
