@@ -91,7 +91,7 @@ ggplot(lobster_count_graph, aes(x = year,
 
 #### Results B
 
-Trends in lobster community size structure were compared in 2012 and 2018, when the Marine Protected Areas were established, and six years after. (Figure 2.) Mean size distribution as well as lobster abundance in the MPA sites significantly grew from 2012 to 2018, while mean size distribution did not change significantly in Non-MPA sites. 
+Trends in lobster community size structure were compared in 2012 and 2018, when the Marine Protected Areas were established, and six years after. (Figure 2.) Mean size distribution as well as lobster abundance in the MPA sites (IVEE & NAPL) significantly grew from 2012 to 2018, while mean size distribution did not change significantly in non-MPA sites. 
 
 ```{r}
 # RESULTS B
@@ -99,39 +99,33 @@ Trends in lobster community size structure were compared in 2012 and 2018, when 
 lobster_data_2012 <- lobster_data_clean %>% 
   filter(year == "2012")
 
-ggplot(data = lobster_data_2012, aes(x = size_mm))+
-  geom_histogram(aes(fill = site))+
-  facet_wrap(~site, scales ="free")+
-  scale_y_continuous(limits = c(0,20), expand = c(0,0))+
-  scale_x_continuous(limits = c(40,160))+
-  labs(x = "Size (mm)", y = "Counts", title = "2012 Lobster Size Distribution")
+
 
 # For 2018
 lobster_data_2018 <- lobster_data_clean %>% 
   filter(year == "2018")
 
-ggplot(data = lobster_data_2018, aes(x = size_mm))+
-  geom_histogram(aes(fill = site))+
-  facet_wrap(~site, scales = "free")+
-  scale_x_continuous(limits = c(40,160))+
-  scale_y_continuous(limits = c(0,150), expand = c(0,0))
-  labs(x = "Size (mm)", y = "Counts", title = "2018 Lobster Size Distribution")
+
 
 lobster_data_2012_2018 <- lobster_data_clean %>% 
   filter(year %in% c("2012", "2018"))
 
-ggplot(lobster_data_2012, aes(x = size_mm)) +
-  geom_histogram() +
-  facet_wrap(~site)
 
 ggplot(lobster_data_2012, aes(x = size_mm)) +
   geom_histogram(data = transform(lobster_data_2018, year = NULL), fill = "gray80") +
-  geom_histogram(aes(fill = year)) +
-  facet_wrap(~site) 
+  geom_histogram(aes(fill = year), show.legend = FALSE) +
+  facet_wrap(~site) +
+  scale_y_continuous(limits = c(0,160), expand = c(0,0)) +
+  theme_gray() +
+  labs(x = "Size (mm)",
+       y = "Lobster count")
+
+  
   
                 
 ```
-***Figure 2.*** *Lobster size distribution in MPA and Non-MPA sites from 2012 to 2018. Size in millimeters shown on x-axis, lobster count shown on y-axis.*
+
+***Figure 2.*** *Lobster size distribution in 5 different sites from 2012 to 2018. Size in millimeters shown on x-axis, lobster count shown on y-axis. Data: Santa Barbara Coastal Long-Term Ecological Research*
 
 #### Results C
 
