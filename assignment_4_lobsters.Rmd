@@ -36,7 +36,7 @@ lobster_bysite <- lobster_data_clean %>%
 The California spiny lobster (*Panulirus interruptus*) is an ecologically important species that has supported valuable commercial and recreational fisheries since the late 1800s (Yaeger et al. 2017). These invertebrates are essential to the giant kelp forests as they prey on kelp-eating sea urchins. Data provided by the Santa Barbara Coastal Long-Term Ecological Research (SBC LTER) program consists of 5 total sampling lobster sites: Arroyo Quemado, Mohawk, Carpinteria, Naples, and Isla Vista (Reed 2019). Out of these 5, Naples and Isla Vista lobster sites are considered Marine Protected Areas (MPA). Studying MPA networks, with varying degrees of protection and use, can help achieve both conservation and fisheries management (Thiault et al. 2019). In this study, the abundance and size of lobsters are presented and analyzed to determine the effects of MPA sites. Specifically, the annual lobster abundance for each site, lobster size distribution shifts for 2012 and 2018, and a summary table of sample statistics are presented. 
 
 ## Data and Methods
-Data for the California spiny lobster abundance and location from 2012 – 2018 were collected and provided by the SBC LTER program (Reed 2019). Sampling occurred late summer before the start of fishing season at the five kelp forest study sites. Naples and Isla Vista are MPA sites while Arroyo Quemado, Mohawk, and Carpinteria are non MPA sites. The number and sizes of spiny lobster were recorded by divers in four 60 x 5 m lobster transects that are associated with each permanent SBC LTER kelp forest community survey transect. Mean lobster size was compared for MPA and non MPA sites by two-sample t-tests (α = 0.05 throughout). All analyses and figures were prepared using R software version 3.6.1.
+Data for the California spiny lobster abundance and location from 2012 – 2018 were collected and provided by the SBC LTER program (Reed 2019). Sampling occurred late summer before the start of fishing season at the five kelp forest study sites. Naples and Isla Vista are MPA sites while Arroyo Quemado, Mohawk, and Carpinteria are non-MPA sites. The number and sizes of spiny lobster were recorded by divers in four 60 x 5 m lobster transects that are associated with each permanent SBC LTER kelp forest community survey transect. Mean lobster size was compared for MPA and non-MPA sites by two-sample t-tests (α = 0.05 throughout). All analyses and figures were prepared using R software version 3.6.1.
 
 ## Results {.tabset .tabset-fade}
 
@@ -179,7 +179,7 @@ mean_non_mpa_2018 <- mean(lobster_smry_non_mpa_2018$size_mm, na.rm = TRUE)
 
 ```{r}
 # MPA Lobsters 2012
-#One sample t-test..
+#One sample t-test.
 mpa_lobsters_2012 <- lobster_smry_mpa_2012 %>% 
   filter(site %in% c("IVEE", "NAPL")) %>% 
   pull(size_mm)
@@ -249,13 +249,13 @@ lobster_table_both %>%
 
 ```{r}
 #Results C, Question 1.
-# 2 sample t-test 2012 MPA vs Non-MPA lobsters
+# 2 sample t-test 2012 MPA vs non-MPA lobsters
 mpa_v_non_mpa_2012_ttest <- t.test(mpa_lobsters_2012, non_mpa_lobsters_2012)
 
 
 ```
 
-Mean lobster size in MPA vs Non-MPA sites differed significantly in 2012 (t(`r round(mpa_v_non_mpa_2012_ttest$parameter, 2)`) = `r round(mpa_v_non_mpa_2012_ttest$statistic, 2)`, *p* < 0.05). Mean lobster size in Non-MPA sites was 11% larger than in MPA sites, with an actual difference of 7.55mm. For lobsters observed in MPA sites in 2012, mean = 67.37mm, n = 32, while lobsters observed in Non-MPA sites in 2012, mean = 74.92mm, n = 199. 
+Mean lobster size in MPA vs non-MPA sites differed significantly in 2012 (t(`r round(mpa_v_non_mpa_2012_ttest$parameter, 2)`) = `r round(mpa_v_non_mpa_2012_ttest$statistic, 2)`, *p* < 0.05). Mean lobster size in non-MPA sites was 11% larger than in MPA sites, with an actual difference of 7.55mm. For lobsters observed in MPA sites in 2012, mean = 67.37mm, n = 32, while lobsters observed in Non-MPA sites in 2012, mean = 74.92mm, n = 199. 
 
 ##### 2. For 2018 observations, is there a significant difference in lobster size between MPA and non-MPA sites?
 
@@ -289,7 +289,7 @@ non_mpa_2012_2018_ttest <- t.test(non_mpa_lobsters_2012, non_mpa_lobsters_2018)
 
 
 ```
-Mean lobster size in Non-MPA sites do not differ significantly from 2012 to 2018 (t(`r round(non_mpa_2012_2018_ttest$parameter, 2)`) = `r round(non_mpa_2012_2018_ttest$statistic, 2)`, *p* > 0.05). The sample mean lobster size in 2012 non-MPA sites, mean = 74.92mm, n = 199, and sample mean lobster size in 2018 non-MPA sites, mean = 73.62mm, n = 561. 
+Mean lobster size in non-MPA sites do not differ significantly from 2012 to 2018 (t(`r round(non_mpa_2012_2018_ttest$parameter, 2)`) = `r round(non_mpa_2012_2018_ttest$statistic, 2)`, *p* > 0.05). The sample mean lobster size in 2012 non-MPA sites, mean = 74.92mm, n = 199, and sample mean lobster size in 2018 non-MPA sites, mean = 73.62mm, n = 561. 
 
 
 
@@ -298,16 +298,16 @@ Mean lobster size in Non-MPA sites do not differ significantly from 2012 to 2018
 
 - Lobster abundance in MPA sites increased more than non-MPA sites from 2012 to 2018 (Figure 1)
 - Mean lobster size distribution and abundance significantly increased in MPA sites (Figure 2)
-- Mean lobster size distribution and abundance was not significantly increase in non-MPA sites from 2012 to 2018 (Table 1)
+- Mean lobster size distribution and abundance did not significantly increase in non-MPA sites from 2012 to 2018 (Table 1)
 
 
 
 ## References
-**Reed D. 2019.** SBC LTER: Reef: Abundance, size and fishing effort for California Spiny Lobster (Panulirus interruptus), ongoing since 2012. Environmental Data Initiative. https://doi.org/10.6073/pasta/a593a675d644fdefb736750b291579a0. Dataset accessed 11/17/2019.
+**Reed D. 2019.** *SBC LTER: Reef: Abundance, size and fishing effort for California Spiny Lobster (Panulirus interruptus), ongoing since 2012.* Environmental Data Initiative. https://doi.org/10.6073/pasta/a593a675d644fdefb736750b291579a0. Dataset accessed 11/17/2019.
 
-**Thiault, L., Kernaleguen, L., Osenberg, C. W., Lison de Loma, T., Chancerelle, Y., Siu, G., and Claudet, J.. 2019.** Ecological evaluation of a marine protected area network: a progressive‐change BACIPS approach. Ecosphere 10(2).
+**Thiault, L., Kernaleguen, L., Osenberg, C. W., Lison de Loma, T., Chancerelle, Y., Siu, G., and Claudet, J.. 2019.** *Ecological evaluation of a marine protected area network: a progressive‐change BACIPS approach.* Ecosphere 10(2).
 
-**Yaeger, K., Culver, C., Schroeter, S., Page, H. (2017).** Utility of a Collaborative At-Sea Sampling Program (CASP) for the California Spiny Lobster Commercial Fishery: Catch Characteristics and Implications for Management. Marine and Coastal Fisheries 9(1): 190-202.
+**Yaeger, K., Culver, C., Schroeter, S., Page, H. (2017).** *Utility of a Collaborative At-Sea Sampling Program (CASP) for the California Spiny Lobster Commercial Fishery: Catch Characteristics and Implications for Management.* Marine and Coastal Fisheries 9(1): 190-202.
 
 
 
